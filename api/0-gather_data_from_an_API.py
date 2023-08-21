@@ -15,13 +15,13 @@ if __name__ == '__main__':
     count = 0
     for key, value in usu[0].items():
         if key == "name":
-            print("Employee {}".format(value), end="")
+            name = value
     for x in range(len(title)):
         for y, z in title[x].items():
             if y == "completed" and z == True:
                 truecount = truecount + 1
         count = count + 1
-    print("is done with tasks({}/{}):".format(truecount,count))
+    print("Employee {} is done with tasks({}/{}):".format(name,truecount,count))
     for x in range(len(title)):
         for y, z in title[x].items():
             if y == "title":
