@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""a Python script that, using this REST API,
-for a given employee ID, returns information about his/her todo
-list progress."""
+"""Using what you did in the task #0, extend your
+Python script to export data in the JSON format.."""
 import requests
 from sys import argv
+import json
 
 if __name__ == '__main__':
     id = int(argv[1])
+    lista =[]
     title = requests.get(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
             id)).json()
@@ -16,7 +17,8 @@ if __name__ == '__main__':
         if key == "username":
             name = value
 
-    with open("{}.csv".format(id), mode="w") as f:
+    with open("{}.json".format(id), mode="w") as f:
         for x in title:
-            w = f.write("{},{},{},{}\n".format(
-                id, name, x["completed"], x["title"]))
+            lista.append({
+                "task:": x["title"], "completed": x["completed"], "username": name})
+        json.dump(lista,f)
