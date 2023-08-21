@@ -17,7 +17,6 @@ if __name__ == '__main__':
         if key == "username":
             name = value
 
-    with open("{}.CSV".format(id), mode="w+") as f:
-        w = csv.writer(f)
+    with open("{}.csv".format(id), mode="w") as f:
         for x in title:
-            w.writerow([id, name, x["completed"], x["title"]])
+            w = f.write([id, name, x["completed"], x["title"]])
