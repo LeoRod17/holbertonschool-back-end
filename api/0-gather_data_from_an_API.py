@@ -24,7 +24,6 @@ if __name__ == '__main__':
         count = count + 1
     print("Employee {} is done with tasks({}/{}):".format(
         name, truecount, count))
-    for x in range(len(title)):
-        for y, z in title[x].items():
-            if y == "title":
-                print(z)
+    for x in title:
+        if x["completed"]:
+                print("\t {}".format(x["title"]))
