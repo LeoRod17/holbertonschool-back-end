@@ -7,7 +7,7 @@ import requests
 from sys import argv
 
 if __name__ == '__main__':
-    id = argv[1]
+    id = int(argv[1])
     title = requests.get(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
             id)).json()
@@ -19,4 +19,4 @@ if __name__ == '__main__':
 
     with open("{}.csv".format(id), mode="w") as f:
         for x in title:
-            w = f.write([id, name, x["completed"], x["title"]])
+            w = f.write("{},{},{},{}\n".format(id, name, x["completed"], x["title"]))
