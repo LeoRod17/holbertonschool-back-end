@@ -7,7 +7,22 @@ from sys import argv
 
 if __name__ == '__main__':
     id = argv[1]
-    req = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
-                   .format(id)).json()
-    for x in req:
-        print(x)
+    title = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
+                .format(id)).json()
+    usu = requests.get('https://jsonplaceholder.typicode.com/users?id={}'
+                .format(id)).json()
+    truecount = 0
+    count = 0
+    for key, value in usu[0].items():
+        if key == "name":
+            print("Employee {}".format(value), end="")
+    for x in range(len(title)):
+        for y, z in title[x].items():
+            if y == "completed" and z == True:
+                truecount = truecount + 1
+        count = count + 1
+    print("is done with tasks({}/{}):".format(truecount,count))
+    for x in range(len(title)):
+        for y, z in title[x].items():
+            if y == "title":
+                print(z)
