@@ -23,4 +23,4 @@ if __name__ == '__main__':
             lista.append({
                 "task:": x["title"], "completed": x["completed"],
                 "username": name})
-        json.dump({id: lista}, f)
+        json.dump({'{}'.format(id): lista}, f)
