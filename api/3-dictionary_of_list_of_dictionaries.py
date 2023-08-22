@@ -17,7 +17,7 @@ if __name__ == '__main__':
         for y in usu:
             user = int(y["id"])
             for x in title:
-                if x["id"] == user:
+                if x["userId"] == user:
                     lista.append({
                         "task": x['title'],
                         "completed": x["completed"],
