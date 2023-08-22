@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Using what you did in the task #0, extend your
-Python script to export data in the JSON format.."""
+"""Using what you did in the task #0, extend your Python
+script to export data in the JSON format."""
 import json
 import requests
 
@@ -12,7 +12,7 @@ if __name__ == '__main__':
         'https://jsonplaceholder.typicode.com/todos').json()
     usu = requests.get(
         'https://jsonplaceholder.typicode.com/users').json()
-    
+
     with open("todo_all_employees.json", mode="w") as f:
         for y in usu:
             user = int(y["id"])
