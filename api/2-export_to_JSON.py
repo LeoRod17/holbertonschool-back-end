@@ -14,11 +14,13 @@ if __name__ == '__main__':
             id)).json()
     usu = requests.get(
         'https://jsonplaceholder.typicode.com/users?id={}'.format(id)).json()
+    for key, value in usu[0].items():
+        if key == "username":
+            name = value
 
     with open("{}.json".format(id), mode="w") as f:
         for x in title:
-            if x['userId'] == id:
-                lista.append({
-                    "task:": x["title"], "completed": x["completed"],
-                    "username": usu["username"]})
-        json.dump({'{}'.format(id): lista}, f)
+            lista.append({
+                "task:": x["title"], "completed": x["completed"],
+                "username": name})
+        json.dump({str(id): lista}, f)
