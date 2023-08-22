@@ -18,5 +18,5 @@ if __name__ == '__main__':
 
     with open("{}.csv".format(id), mode="w") as f:
         for x in title:
-            w = f.write("{},{},{},{}\n".format(
+            w = f.write('"{}","{}","{}","{}"\n'.format(
                 id, name, x["completed"], x["title"]))
