@@ -21,6 +21,6 @@ if __name__ == '__main__':
     with open("{}.json".format(id), mode="w") as f:
         for x in title:
             lista.append({
-                "task:": x["title"], "completed": x["completed"],
+                "task": x['title'], "completed": x["completed"],
                 "username": name})
-        json.dump({str(id): lista}, f)
+        json.dump({(id): lista}, f)
