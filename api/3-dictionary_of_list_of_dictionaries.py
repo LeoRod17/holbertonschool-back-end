@@ -19,9 +19,9 @@ if __name__ == '__main__':
             for x in title:
                 if x["id"] == user:
                     lista.append({
-                        "username": y["username"],
                         "task": x['title'],
-                        "completed": x["completed"]
+                        "completed": x["completed"],
+                        "username": y["username"]
                     })
             dic[str(user)] = lista
             lista = []
